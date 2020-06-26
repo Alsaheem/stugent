@@ -10,7 +10,6 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Typography } from "antd";
-import Navbar from "../../components/Navbar/Navbar";
 
 const { Header, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -73,7 +72,7 @@ const DashboardLayout = ({ children }) => {
                 className: "trigger",
                 onClick: toggle,
               }
-            )}
+          )}
           </Header>
           <Content
             className="site-layout-background"
