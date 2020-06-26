@@ -11,6 +11,11 @@ import Listings from "./components/Listings/Listings";
 import SingleListing from "./components/Listings/SingleListing";
 import ListingSearch from "./components/Listings/ListingSearch";
 import About from "./containers/About/About";
+import './App.css';
+import DashboardLayout from "./containers/Dashboard/DashboardLayout";
+import Dashboard from "./containers/Dashboard/Dashboard";
+import Chat from "./components/Chat/Chat";
+
 
 function App() {
   return (
@@ -21,6 +26,8 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/about" component={About} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/chats" component={Chat} />
           <Route path="/listings" component={Listings} />
           <Route path="/listing" component={SingleListing} />
           <Route path="/search" component={ListingSearch} />

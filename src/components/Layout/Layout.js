@@ -2,11 +2,11 @@ import React from "react";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
-export default function Layout({ children }) {
+export default function Layout({ children,hide }) {
   return (
     <div>
       <div>
-        <section id="top-bar" className="p-3">
+        {!hide && <section id="top-bar" className="p-3">
           <div className="container">
             <div className="row">
               <div className="col-md-4">
@@ -36,7 +36,7 @@ export default function Layout({ children }) {
               </div>
             </div>
           </div>
-        </section>
+        </section>}
         <Navbar />
         {children}
         {/* Footer */}
