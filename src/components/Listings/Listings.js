@@ -7,7 +7,7 @@ export default function Listings() {
 
   useEffect(() => {
     axios
-      .get("127.0.0.1:8000/listings")
+      .get("http://127.0.0.1:8000/listings")
       .then((response) => response.json())
       .then((data) => {
         setListings(data);
