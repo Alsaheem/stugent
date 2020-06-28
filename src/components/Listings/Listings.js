@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import Layout from "../Layout/Layout";
 import axios from "axios";
 
-
 export default function Listings() {
   const [listings, setListings] = useState([]);
-  
-    axios.get('127.0.0.1:8000/listings')
-      .then(response => response.json())
-      .then(data => {
+
+  useEffect(() => {
+    axios
+      .get("127.0.0.1:8000/listings")
+      .then((response) => response.json())
+      .then((data) => {
         setListings(data);
+        console.log(data);
       });
-   
+  }, []);
 
   return (
     // setListings
     <div>
       <Layout>
         <div>
-          
           <section id="showcase-inner" className="py-5 text-white">
             <div className="container">
               <div className="row text-center">
                 <div className="col-md-12">
                   <h1 className="display-4">Browse Our Properties</h1>
+                  <h2>{JSON.stringify(listings)}</h2>
                   <p className="lead">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Sunt, pariatur!
@@ -52,7 +54,7 @@ export default function Listings() {
             <div className="container">
               <div className="row">
                 {/* Listing 1 */}
-              {listings.map((listing) => (
+                {listings.map((listing) => (
                   <div className="col-md-6 col-lg-4 mb-4">
                     <div className="card listing-preview">
                       <img
@@ -110,45 +112,43 @@ export default function Listings() {
                         >
                           More Info
                         </a>
-
                       </div>
                     </div>
                   </div>
-                ))
-                }
-                
-              <div className="row">
-                <div className="col-md-12">
-                  <ul className="pagination">
-                    <li className="page-item disabled">
-                      <a className="page-link" href="#">
-                        «
-                      </a>
-                    </li>
-                    <li className="page-item active">
-                      <a className="page-link" href="#">
-                        1
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        2
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        3
-                      </a>
-                    </li>
-                    <li className="page-item">
-                      <a className="page-link" href="#">
-                        »
-                      </a>
-                    </li>
-                  </ul>
+                ))}
+
+                <div className="row">
+                  <div className="col-md-12">
+                    <ul className="pagination">
+                      <li className="page-item disabled">
+                        <a className="page-link" href="#">
+                          «
+                        </a>
+                      </li>
+                      <li className="page-item active">
+                        <a className="page-link" href="#">
+                          1
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          2
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          3
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          »
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
           </section>
         </div>
