@@ -8,10 +8,9 @@ export default function Listings() {
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/listings")
-      .then((response) => response.json())
-      .then((data) => {
-        setListings(data);
-        console.log(data);
+      .then((response) => {
+        setListings(response.data);
+        console.log(response.data);
       });
   }, []);
 
@@ -25,7 +24,7 @@ export default function Listings() {
               <div className="row text-center">
                 <div className="col-md-12">
                   <h1 className="display-4">Browse Our Properties</h1>
-                  <h2>{JSON.stringify(listings)}</h2>
+                  {/* <h2>{JSON.stringify(listings)}</h2> */}
                   <p className="lead">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Sunt, pariatur!
@@ -54,12 +53,12 @@ export default function Listings() {
             <div className="container">
               <div className="row">
                 {/* Listing 1 */}
-                {listings.map((listing) => (
-                  <div className="col-md-6 col-lg-4 mb-4">
+                {listings.map((listing,index) => (
+                  <div key={index} className="col-md-6 col-lg-4 mb-4">
                     <div className="card listing-preview">
                       <img
                         className="card-img-top"
-                        src="assets/img/homes/home-1.jpg"
+                        src={listing.photo_main}
                         alt
                       />
                       <div className="card-img-overlay">
