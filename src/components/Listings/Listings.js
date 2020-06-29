@@ -24,7 +24,6 @@ export default function Listings() {
               <div className="row text-center">
                 <div className="col-md-12">
                   <h1 className="display-4">Browse Our Properties</h1>
-                  {/* <h2>{JSON.stringify(listings)}</h2> */}
                   <p className="lead">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Sunt, pariatur!
