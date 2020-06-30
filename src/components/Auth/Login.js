@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../Layout/Layout";
 
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = () => {
+    console.log(`submitting`);
+  }
+
   return (
     <div>
       <Layout>
@@ -11,18 +18,20 @@ export default function Login() {
               <div className="col-md-6 mx-auto">
                 <div className="card">
                   <div className="card-header bg-primary text-white">
-                    <h4>
+                    <h4 className="text-white">
                       <i className="fas fa-sign-in-alt" /> Login
                     </h4>
                   </div>
                   <div className="card-body">
-                    <form action="index.html">
+                    <form onSubmit={handleSubmit}>
                       <div className="form-group">
                         <label htmlFor="username">Username</label>
                         <input
                           type="text"
                           name="username"
                           className="form-control"
+                          value={username}
+                          onChange={(e) => setUsername(e.target.value)}
                           required
                         />
                       </div>
@@ -32,6 +41,8 @@ export default function Login() {
                           type="password"
                           name="password"
                           className="form-control"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
                           required
                         />
                       </div>
