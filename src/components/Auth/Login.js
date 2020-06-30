@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Layout from "../Layout/Layout";
+import { authLogin } from "../../api/api";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
+    authLogin(username,password)
     console.log(`submitting`);
   }
 

@@ -38,7 +38,7 @@ export const authLogin = (username, password) => {
 };
 
 
-export const logout = () => {
+export const authLogout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("expirationDate");
 };

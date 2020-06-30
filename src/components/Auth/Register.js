@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../Layout/Layout";
+import { authSignup } from "../../api/api";
+
 
 export default function Register() {
   const [firstname, setFirstname] = useState("");
@@ -8,6 +10,12 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
+
+  const handleSubmit = () => {
+    authSignup(email,username,password)
+    console.log(`submitting`);
+  }
+
   return (
     <div>
       <Layout>
@@ -22,7 +30,7 @@ export default function Register() {
                     </h4>
                   </div>
                   <div className="card-body">
-                    <form action="index.html">
+                    <form onSubmit={handleSubmit}>
                       <div className="form-group">
                         <label htmlFor="first_name">First Name</label>
                         <input

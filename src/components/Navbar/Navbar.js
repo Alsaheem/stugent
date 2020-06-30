@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { authLogout } from "../../api/api";
 
 const Navbar = () => {
   return (

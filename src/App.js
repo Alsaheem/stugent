@@ -22,7 +22,7 @@ import Dashboard from "./containers/Dashboard/Dashboard";
 import Chat from "./components/Chat/Chat";
 
 const isAuthenticated = () => {
-  if (localStorage.getItem("authToken")) {
+  if (localStorage.getItem("stugentAuthToken")) {
     return true;
   } else {
     return false;
@@ -37,7 +37,7 @@ function PrivateRoute({ component: Component, ...rest }, props) {
     <Route
       {...rest}
       render={({ location }) =>
-        isAuthenticated ? (
+        isAuthenticated() ? (
           <Component {...props} />
         ) : (
           <Redirect
